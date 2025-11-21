@@ -1,0 +1,3 @@
+[workspace]
+resolver = "3"
+members = ["a-variables-immuabilite", "b-ownership", "c-borrowing", "d-enum-pattern-matching", "e-option-result"]
