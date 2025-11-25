@@ -12,19 +12,18 @@ fn main() {
     // 1. Immutable borrowing
     let text = String::from("hello world");
 
-    print_message(&text); // immutable borrow
-    print_message(&text); // still fine
+    print_message(&text);
+    print_message(&text);
 
-    // text is still valid because no ownership was taken
-    println!("After immutable borrows: {}", text);
+    println!("{text}");
 
 
     // 2. Mutable borrowing
-    let mut name = String::from("Alice");
+    let mut text = "Hello 42".to_string();
+    add_suffix(&mut text);
 
-    add_suffix(&mut name); // mutable borrow
-    println!("After mutable borrow: {}", name);
-
+    println!("{text}");
+    print_message(&text);
 
     // 3. Rust preventing a data race
     let mut data = String::from("danger");
@@ -36,7 +35,7 @@ fn main() {
     println!("r1 = {}, r2 = {}", r1, r2);
 
     // But this would NOT compile:
-    // let r3 = &mut data; 
+    // let r3 = &mut data;
     // ERROR:
     // cannot borrow `data` as mutable because it is 
     // also borrowed as immutable
