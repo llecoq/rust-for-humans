@@ -9,9 +9,7 @@ fn add_suffix(msg: &mut String) {
 }
 
 fn main() {
-    // --------------------------------------
     // 1. Immutable borrowing
-    // --------------------------------------
     let text = String::from("hello world");
 
     print_message(&text); // immutable borrow
@@ -21,18 +19,14 @@ fn main() {
     println!("After immutable borrows: {}", text);
 
 
-    // --------------------------------------
     // 2. Mutable borrowing
-    // --------------------------------------
     let mut name = String::from("Alice");
 
     add_suffix(&mut name); // mutable borrow
     println!("After mutable borrow: {}", name);
 
 
-    // --------------------------------------
     // 3. Rust preventing a data race
-    // --------------------------------------
     let mut data = String::from("danger");
 
     // This is OK:
@@ -48,9 +42,7 @@ fn main() {
     // also borrowed as immutable
 
 
-    // --------------------------------------
     // 4. Rust also forbids multiple mutable borrows
-    // --------------------------------------
     let mut value = String::from("abc");
 
     let m1 = &mut value;
@@ -64,10 +56,8 @@ fn main() {
     println!("After single mutable borrow: {}", m1);
 
 
-    // --------------------------------------
     // 5. How to fix borrowing conflicts
     // (limit the scope of the borrow)
-    // --------------------------------------
     let mut message = String::from("fix me");
 
     {

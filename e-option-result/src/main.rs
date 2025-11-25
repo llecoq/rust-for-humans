@@ -27,9 +27,7 @@ fn read_file_contents(path: &str) -> Result<String, io::Error> {
 }
 
 fn main() {
-    // ----------------------------------------
     // 1. Using Option
-    // ----------------------------------------
     let text = "hello";
 
     match get_length_if_not_empty(text) {
@@ -37,9 +35,7 @@ fn main() {
         None => println!("The string was empty"),
     }
 
-    // ----------------------------------------
     // 2. Using Result and ?
-    // ----------------------------------------
     match read_file_contents("example.txt") {
         Ok(data) => println!("File content:\n{}", data),
         Err(e) => println!("Could not read file: {}", e),
